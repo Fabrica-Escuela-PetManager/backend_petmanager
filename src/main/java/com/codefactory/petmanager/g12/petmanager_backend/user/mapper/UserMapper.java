@@ -1,0 +1,30 @@
+package com.codefactory.petmanager.g12.petmanager_backend.user.mapper;
+
+import java.util.List;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+import com.codefactory.petmanager.g12.petmanager_backend.auth.controller.dto.RoleDTO;
+import com.codefactory.petmanager.g12.petmanager_backend.auth.model.Role;
+import com.codefactory.petmanager.g12.petmanager_backend.user.controller.dto.UserRequestDTO;
+import com.codefactory.petmanager.g12.petmanager_backend.user.controller.dto.UserResponseDTO;
+import com.codefactory.petmanager.g12.petmanager_backend.user.model.User;
+
+@Mapper(componentModel = "spring")
+public interface UserMapper {
+
+  @Mapping(source = "role", target = "role")
+  UserResponseDTO userToUserResponseDTO(User user);
+
+  @Mapping(target = "id", ignore = true)
+  @Mapping(target = "role", ignore = true)
+  @Mapping(target = "active", ignore = true)
+  User userRequestDTOToUser(UserRequestDTO userRequestDTO);
+
+  RoleDTO roleToRoleDTO(Role role);
+
+  List<UserResponseDTO> usersToUserResponseDTOs(List<User> users);
+  List<RoleDTO> rolesToRoleDTOs(List<Role> roles);
+  
+}
