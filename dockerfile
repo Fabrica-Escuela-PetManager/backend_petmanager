@@ -4,17 +4,14 @@ WORKDIR /app
 
 COPY . .
 
-# Si usas Maven
-RUN ./mvnw clean package -DskipTests
+RUN chmod +x mvnw
 
-# Si usas Gradle sería:
-# RUN ./gradlew build -x test
+RUN ./mvnw clean package -DskipTests
 
 FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-# copia el jar generado
 COPY --from=builder /app/target/*.jar app.jar
 
 EXPOSE 8080

@@ -29,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 @Tag(name = "Pagos", description = "Operaciones CRUD relacionadas a los pagos")
 @RestController
 @RequestMapping("/api/payments")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class PaymentController {
 
