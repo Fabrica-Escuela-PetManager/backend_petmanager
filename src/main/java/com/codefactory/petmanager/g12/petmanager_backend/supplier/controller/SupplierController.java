@@ -39,7 +39,6 @@ import lombok.RequiredArgsConstructor;
 @Tag(name = "Proveedores", description = "Operaciones CRUD relacionadas a los proveedores")
 @RestController
 @RequestMapping("/api/suppliers")
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class SupplierController {
 

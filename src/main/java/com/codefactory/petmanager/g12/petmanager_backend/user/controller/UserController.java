@@ -28,7 +28,6 @@ import lombok.RequiredArgsConstructor;
 @Tag(name = "Usuarios", description = "Operaciones relacionadas a los usuarios")
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class UserController {
 
